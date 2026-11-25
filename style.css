@@ -1,0 +1,521 @@
+/* ==========================================================
+   TEMA: NATURE / WARM EARTH (Verde Salvia, Crema y Terracota)
+   Tipografía: DM Sans
+   ========================================================== */
+
+:root {
+    /* Paleta Principal Warm Earth */
+    --bg-page: #f4efe6;
+    --bg-gradient: radial-gradient(circle at 15% 15%, #faf8f3 0%, #f4efe6 50%, #e8e0d1 100%);
+    
+    --surface-card: #fcfbf8;
+    --surface-card-subtle: #f5f0e6;
+    --surface-card-white: #ffffff;
+    
+    --border-color: #e4dcd0;
+    --border-color-focus: #4b6f52;
+    
+    /* Tonos Verdes / Salvia / Bosque */
+    --primary: #3d6046;              /* Verde salvia profundo */
+    --primary-hover: #314f39;        /* Verde bosque oscuro */
+    --primary-light: #e9f0e8;        /* Salvia muy suave para chips/fondos */
+    --primary-glow: rgba(61, 96, 70, 0.22);
+    
+    /* Acentos Terrosos / Terracota / Arena */
+    --accent-earth: #b77043;         /* Terracota cálido */
+    --accent-earth-hover: #9c5c34;   /* Terracota tostado */
+    --accent-earth-glow: rgba(183, 112, 67, 0.22);
+    --accent-sand: #d6cab8;          /* Arena suave */
+    
+    /* Peligro / Borrar */
+    --danger: #b84a44;               /* Rojo ladrillo terroso */
+    --danger-hover: #9e3d37;
+    --danger-soft: #fceeec;
+    
+    /* Textos */
+    --text-primary: #272f26;         /* Carbón bosque oscuro */
+    --text-secondary: #5f6b5d;       /* Gris oliva cálido */
+    --text-muted: #8d988b;           /* Salvia apagado */
+    --text-on-primary: #ffffff;
+    
+    /* Inputs */
+    --input-bg: #ffffff;
+    --input-focus-bg: #ffffff;
+    
+    /* Sombras orgánicas */
+    --shadow-sm: 0 2px 6px rgba(45, 52, 40, 0.05);
+    --shadow-md: 0 8px 24px -4px rgba(45, 52, 40, 0.08), 0 2px 6px -1px rgba(45, 52, 40, 0.04);
+    --shadow-lg: 0 20px 40px -10px rgba(45, 52, 40, 0.11), 0 8px 18px -4px rgba(45, 52, 40, 0.05);
+    --shadow-card-hover: 0 10px 25px -4px rgba(45, 52, 40, 0.12);
+    
+    /* Bordes redondeados */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+    
+    --font-main: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- RESET Y BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg-page);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--surface-card);
+    padding: 2.4rem 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoración sutil de fondo orgánico en el contenedor */
+.container::after {
+    content: '';
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(163, 177, 138, 0.28) 0%, rgba(218, 215, 205, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* --- BADGES Y ENCABEZADOS --- */
+.brand-badge-container {
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.brand-badge.mini {
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+}
+
+.brand-badge .badge-icon {
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-family: var(--font-main);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.35rem;
+    transition: transform 0.2s ease;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin-bottom: 1.8rem;
+}
+
+/* --- HEADER APP --- */
+.header-app {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-left h1 {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.logout-btn {
+    background: var(--surface-card-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border-color: rgba(184, 74, 68, 0.3);
+    transform: translateY(-1px);
+}
+
+/* --- FORMULARIOS --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+input, textarea {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1.5px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    padding: 13px 15px;
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus, textarea:focus {
+    background: var(--input-focus-bg);
+    border-color: var(--border-color-focus);
+    box-shadow: 0 0 0 3.5px var(--primary-glow);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 85px;
+    line-height: 1.45;
+}
+
+.datetime-container {
+    display: flex;
+    gap: 10px;
+}
+
+.datetime-container input {
+    flex: 1;
+}
+
+/* Personalización de inputs de fecha y hora */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: sepia(0.6) hue-rotate(65deg) opacity(0.7);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* --- BOTONES --- */
+button {
+    font-family: var(--font-main);
+    padding: 13px 20px;
+    border-radius: var(--radius-sm);
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.3px;
+}
+
+/* Botón principal */
+#submit-btn, #auth-submit {
+    background: var(--primary);
+    color: var(--text-on-primary);
+    box-shadow: 0 4px 14px var(--primary-glow);
+    margin-top: 4px;
+}
+
+#submit-btn:hover, #auth-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(61, 96, 70, 0.35);
+}
+
+#submit-btn:active, #auth-submit:active {
+    transform: translateY(0);
+}
+
+/* Modo edición */
+#submit-btn.edit-mode {
+    background: var(--accent-earth);
+    box-shadow: 0 4px 14px var(--accent-earth-glow);
+}
+
+#submit-btn.edit-mode:hover {
+    background: var(--accent-earth-hover);
+}
+
+/* --- SECCIÓN DE TAREAS --- */
+.tasks-section-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    padding-left: 2px;
+}
+
+#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estado vacío amigable cuando no hay tareas */
+#task-list:empty::before {
+    content: "🌱 No tienes tareas pendientes. ¡Comienza agregando una arriba!";
+    display: block;
+    text-align: center;
+    padding: 2.2rem 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    background: var(--surface-card-subtle);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border-color);
+    line-height: 1.5;
+}
+
+/* Tarjeta de tarea */
+.task-card {
+    background: var(--surface-card-white);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: #d6ccbe;
+}
+
+.task-card h3 {
+    margin: 0;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--primary);
+    word-break: break-word;
+}
+
+.task-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.task-card p:empty {
+    display: none;
+}
+
+.task-card .meta {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.task-card .meta::before {
+    content: "🗓️";
+    margin-right: 6px;
+    font-size: 0.8rem;
+}
+
+.actions {
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.edit-btn {
+    background: var(--surface-card-subtle);
+    color: var(--accent-earth);
+    border: 1px solid rgba(183, 112, 67, 0.35);
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    border-radius: var(--radius-sm);
+}
+
+.edit-btn:hover {
+    background: var(--accent-earth);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px var(--accent-earth-glow);
+}
+
+.delete-btn {
+    background: var(--surface-card-subtle);
+    color: var(--danger);
+    border: 1px solid rgba(184, 74, 68, 0.35);
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    border-radius: var(--radius-sm);
+}
+
+.delete-btn:hover {
+    background: var(--danger);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(184, 74, 68, 0.25);
+}
+
+/* --- ENLACE TOGGLE AUTH --- */
+#auth-toggle {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+#auth-toggle span {
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+#auth-toggle span:hover {
+    color: var(--primary-hover);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInApp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flipIn {
+    0% {
+        transform: perspective(600px) rotateX(-12deg);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(600px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes taskSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#auth-container {
+    animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.flip-animate {
+    animation: flipIn 0.35s ease forwards;
+}
+
+.app-enter {
+    animation: fadeInApp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.task-card {
+    animation: taskSlideIn 0.35s ease forwards;
+}
+
+/* Scrollbar personalizado cálido */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-sand);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}

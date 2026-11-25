@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio de Tareas | Organiza tu día</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <!-- Google Fonts: DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECCIÓN DE AUTENTICACIÓN -->
+    <div id="auth-container" class="container">
+        <div class="brand-badge-container">
+            <div class="brand-badge">
+                <span class="badge-icon">🌿</span>
+                <span>Espacio Personal</span>
+            </div>
+        </div>
+        <h1 id="auth-title">Iniciar Sesión</h1>
+        <p class="subtitle">Organiza tus tareas con calma, claridad y armonía</p>
+        <form id="auth-form">
+            <input type="email" id="auth-email" placeholder="Correo electrónico" required autocomplete="email">
+            <input type="password" id="auth-password" placeholder="Contraseña" required autocomplete="current-password">
+            <button type="submit" id="auth-submit">Entrar</button>
+        </form>
+        <p id="auth-toggle">¿No tienes cuenta? <span onclick="toggleAuth()">Regístrate aquí</span></p>
+    </div>
+
+    <!-- SECCIÓN DE LA APP (OCULTA POR DEFECTO) -->
+    <div id="app-container" class="container" style="display: none;">
+        <div class="header-app">
+            <div class="header-left">
+                <div class="brand-badge mini">
+                    <span class="badge-icon">🌿</span> Mi Cuaderno
+                </div>
+                <h1>Mis Pendientes</h1>
+            </div>
+            <button onclick="logout()" class="logout-btn" title="Cerrar sesión">Cerrar Sesión</button>
+        </div>
+        
+        <form id="todo-form">
+            <input type="text" id="title" placeholder="¿Qué tienes planeado hacer hoy?" required>
+            <textarea id="description" placeholder="Añade una descripción o notas (opcional)" rows="3"></textarea>
+            <div class="datetime-container">
+                <input type="date" id="date" required>
+                <input type="time" id="time" required>
+            </div>
+            <button type="submit" id="submit-btn">Agregar Tarea</button>
+        </form>
+
+        <div class="tasks-section-title">
+            <span>Tareas registradas</span>
+        </div>
+        <div id="task-list"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
